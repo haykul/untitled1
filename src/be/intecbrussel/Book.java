@@ -3,10 +3,10 @@ package be.intecbrussel;
 import java.time.LocalDate;
 
 public class Book implements Comparable<Book>{
-    public String title;
-    public Person author;
-    public LocalDate releaseDate;
-    public String genre;
+    private String title;
+    private Person author;
+    private LocalDate releaseDate;
+    private String genre;
 
     public Book(String title, Person author, LocalDate releaseDate, String genre) {
         this.title = title;
@@ -32,7 +32,17 @@ public class Book implements Comparable<Book>{
     }
 
     @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author=" + author +
+                ", releaseDate=" + releaseDate +
+                ", genre='" + genre + '\'' +
+                '}';
+    }
+
+    @Override
     public int compareTo(Book o) {
-        return 0;
+        return this.getTitle().compareTo(o.getTitle());
     }
 }

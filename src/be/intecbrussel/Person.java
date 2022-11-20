@@ -1,6 +1,7 @@
 package be.intecbrussel;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Person {
     public String firstName;
@@ -23,5 +24,27 @@ public class Person {
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return firstName.equals(person.firstName) && lastName.equals(person.lastName) && dateOfBirth.equals(person.dateOfBirth);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, dateOfBirth);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
     }
 }
